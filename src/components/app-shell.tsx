@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { ShieldCheck, Home, ListChecks, Library, LayoutDashboard, Github } from "lucide-react";
+import { ShieldCheck, Home, ListChecks, Library, LayoutDashboard } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AboutDialog } from "@/components/about-dialog";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -71,17 +72,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <a
-                href="https://owasp.org"
-                target="_blank"
-                rel="noreferrer"
-                className="hidden sm:inline-flex"
-              >
-                <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground">
-                  <Github className="h-4 w-4" />
-                  <span className="hidden lg:inline">OWASP</span>
-                </Button>
-              </a>
+              <AboutDialog />
               <ThemeToggle />
             </div>
           </div>
