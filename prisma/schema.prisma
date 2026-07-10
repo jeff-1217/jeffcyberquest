@@ -1,0 +1,83 @@
+// Prisma schema for the CyberSec MCQ platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String
+  icon        String
+  color       String
+  tests       Test[]
+  questions   Question[]
+  createdAt   DateTime @default(now())
+
+  @@map("categories")
+}
+
+model Test {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  description  String
+  difficulty   String // Beginner | Intermediate | Advanced
+  durationMin  Int      // time limit in minutes
+  passingScore Int      // percentage required to pass
+  tags         String   // comma separated tags
+  categoryId   String
+  category     Category @relation(fields: [categoryId], references: [id])
+  questions    Question[]
+  attempts     Attempt[]
+  createdAt    DateTime @default(now())
+
+  @@map("tests")
+}
+
+model Question {
+  id          String   @id @default(cuid())
+  text        String
+  explanation String
+  difficulty  String // Beginner | Intermediate | Advanced
+  testId      String?
+  test        Test?    @relation(fields: [testId], references: [id])
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  options     Option[]
+  createdAt   DateTime @default(now())
+
+  @@map("questions")
+}
+
+model Option {
+  id         String   @id @default(cuid())
+  text       String
+  isCorrect  Boolean  @default(false)
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@map("options")
+}
+
+model Attempt {
+  id             String   @id @default(cuid())
+  testId         String
+  test           Test     @relation(fields: [testId], references: [id])
+  score          Int      // percentage
+  totalQuestions Int
+  correctAnswers Int
+  timeSpentSec   Int
+  passed         Boolean
+  answers        String   // JSON string of [{questionId, selectedOptionId, correct}]
+  completedAt    DateTime @default(now())
+
+  @@map("attempts")
+}
