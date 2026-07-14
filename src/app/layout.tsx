@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "CyberQuest" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/logo.svg",
   },
   openGraph: {
     title: "CyberQuest — Cybersecurity MCQ Tests & Practice",
