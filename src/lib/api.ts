@@ -54,5 +54,9 @@ export const api = {
 
   attempts: () => fetchJson<AttemptSummary[]>("/api/attempts"),
 
+  attempt: (id: string) => fetchJson<SubmitResult>(`/api/attempts/${id}`),
+
+  weaknessQuestions: () => fetchJson<BankQuestion[]>("/api/questions/weaknesses"),
+
   stats: () => fetchJson<Stats>("/api/stats"),
 };

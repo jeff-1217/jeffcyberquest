@@ -36,7 +36,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             >
               <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-primary/15 border border-primary/30 text-primary">
                 <ShieldCheck className="h-5 w-5" />
-                <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary animate-blink" />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-mono text-base font-bold tracking-tight">
@@ -128,7 +127,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <span className="text-primary">$</span> stay_vigil
                 <span className="animate-blink">_</span>
               </span>
-              <span>© {new Date().getFullYear()} CyberQuest</span>
+              <span>© 2026 JeffCyberQuest</span>
             </div>
           </div>
         </div>

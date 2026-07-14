@@ -1163,243 +1163,3035 @@ const tests: RawTest[] = [
 // Standalone practice questions for the question bank (not tied to a test)
 const practiceQuestions: { categorySlug: string; questions: RawQuestion[] }[] = [
   {
-    categorySlug: "network-security",
-    questions: [
+    "categorySlug": "network-security",
+    "questions": [
       {
-        text: "Which protocol operates at OSI Layer 7 and is used for secure web browsing?",
-        explanation: "HTTPS is an application-layer (Layer 7) protocol combining HTTP with TLS for secure web browsing.",
-        difficulty: "Beginner",
-        options: [
-          { text: "TCP", isCorrect: false },
-          { text: "HTTPS", isCorrect: true },
-          { text: "IP", isCorrect: false },
-          { text: "Ethernet", isCorrect: false },
-        ],
+        "text": "Which protocol operates at OSI Layer 7 and is used for secure web browsing?",
+        "explanation": "HTTPS is an application-layer (Layer 7) protocol combining HTTP with TLS for secure web browsing.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "TCP",
+            "isCorrect": false
+          },
+          {
+            "text": "HTTPS",
+            "isCorrect": true
+          },
+          {
+            "text": "IP",
+            "isCorrect": false
+          },
+          {
+            "text": "Ethernet",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "What does NAT do?",
-        explanation: "Network Address Translation maps private IP addresses to a public one, conserving public IPs and hiding internal addressing.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "Maps private IPs to a public IP", isCorrect: true },
-          { text: "Encrypts network packets", isCorrect: false },
-          { text: "Blocks all incoming traffic", isCorrect: false },
-          { text: "Assigns MAC addresses", isCorrect: false },
-        ],
+        "text": "What does NAT do?",
+        "explanation": "Network Address Translation maps private IP addresses to a public one, conserving public IPs and hiding internal addressing.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Maps private IPs to a public IP",
+            "isCorrect": true
+          },
+          {
+            "text": "Encrypts network packets",
+            "isCorrect": false
+          },
+          {
+            "text": "Blocks all incoming traffic",
+            "isCorrect": false
+          },
+          {
+            "text": "Assigns MAC addresses",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "Which wireless security protocol is considered the most secure for home networks today?",
-        explanation: "WPA3 is the most secure current standard, offering stronger encryption and protection against brute-force attacks than WPA2.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "WEP", isCorrect: false },
-          { text: "WPA", isCorrect: false },
-          { text: "WPA3", isCorrect: true },
-          { text: "Open (no password)", isCorrect: false },
-        ],
+        "text": "Which wireless security protocol is considered the most secure for home networks today?",
+        "explanation": "WPA3 is the most secure current standard, offering stronger encryption and protection against brute-force attacks than WPA2.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "WEP",
+            "isCorrect": false
+          },
+          {
+            "text": "WPA",
+            "isCorrect": false
+          },
+          {
+            "text": "WPA3",
+            "isCorrect": true
+          },
+          {
+            "text": "Open (no password)",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "What is the primary function of the Address Resolution Protocol (ARP)?",
+        "explanation": "ARP resolves IPv4 addresses to MAC physical addresses on a local network segment.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Map IP addresses to MAC addresses",
+            "isCorrect": true
+          },
+          {
+            "text": "Route traffic between networks",
+            "isCorrect": false
+          },
+          {
+            "text": "Encrypt IP payloads",
+            "isCorrect": false
+          },
+          {
+            "text": "Translate domain names to IP addresses",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which protocol is used to secure email transmissions by encrypting the connection between mail servers?",
+        "explanation": "STARTTLS initiates opportunistic TLS to encrypt communication between SMTP/IMAP mail servers.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "STARTTLS",
+            "isCorrect": true
+          },
+          {
+            "text": "DKIM",
+            "isCorrect": false
+          },
+          {
+            "text": "SPF",
+            "isCorrect": false
+          },
+          {
+            "text": "DMARC",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of attack involves transmitting unsolicited messages over Bluetooth?",
+        "explanation": "Bluejacking is the sending of unsolicited messages over Bluetooth to nearby devices, whereas Bluesnarfing is the theft of data.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Bluejacking",
+            "isCorrect": true
+          },
+          {
+            "text": "Bluesnarfing",
+            "isCorrect": false
+          },
+          {
+            "text": "Bluebugging",
+            "isCorrect": false
+          },
+          {
+            "text": "MAC spoofing",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the purpose of an IPsec Security Association (SA)?",
+        "explanation": "An IPsec SA is a logical connection containing the security parameters (keys, algorithms) agreed upon between two hosts.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Establish the security parameters for the communication channel",
+            "isCorrect": true
+          },
+          {
+            "text": "Define the routing table paths",
+            "isCorrect": false
+          },
+          {
+            "text": "Monitor packet latency",
+            "isCorrect": false
+          },
+          {
+            "text": "Assign dynamic IP addresses",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which firewall type tracks the state of active connections and determines whether to allow packets based on context?",
+        "explanation": "Stateful inspection firewalls track the state of connection flows (SYN, SYN-ACK, ESTABLISHED) to make filtering decisions.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Stateful inspection firewall",
+            "isCorrect": true
+          },
+          {
+            "text": "Packet filtering firewall",
+            "isCorrect": false
+          },
+          {
+            "text": "Stateless firewall",
+            "isCorrect": false
+          },
+          {
+            "text": "Circuit-level gateway",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What does the protocol 802.1X provide?",
+        "explanation": "IEEE 802.1X is a network authentication standard for port-based access control on wired and wireless networks.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Port-based network access control",
+            "isCorrect": true
+          },
+          {
+            "text": "Wireless range extension",
+            "isCorrect": false
+          },
+          {
+            "text": "Virtual LAN routing",
+            "isCorrect": false
+          },
+          {
+            "text": "IP address leasing",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which attack floods a target with UDP packets on random ports, forcing it to check for listeners and send back ICMP Destination Unreachable packets?",
+        "explanation": "A UDP flood attack targets random ports, forcing the host to process packets, verify listeners, and respond with ICMP packets, exhausting host resources.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "UDP Flood",
+            "isCorrect": true
+          },
+          {
+            "text": "SYN Flood",
+            "isCorrect": false
+          },
+          {
+            "text": "Ping of Death",
+            "isCorrect": false
+          },
+          {
+            "text": "Smurf Attack",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the primary mechanism of a DNS amplification attack?",
+        "explanation": "DNS amplification uses open resolvers to send large responses to a spoofed victim IP address using small queries.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Using open DNS resolvers to flood a victim with large responses",
+            "isCorrect": true
+          },
+          {
+            "text": "Corrupting a DNS server's cache with false records",
+            "isCorrect": false
+          },
+          {
+            "text": "Hijacking domain registrar accounts",
+            "isCorrect": false
+          },
+          {
+            "text": "Exhausting DHCP addresses on a segment",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which network security concept isolates a subnet from the untrusted public Internet and the trusted internal LAN?",
+        "explanation": "A Demilitarized Zone (DMZ) or screened subnet isolates external-facing services from the private internal network.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "DMZ",
+            "isCorrect": true
+          },
+          {
+            "text": "VLAN",
+            "isCorrect": false
+          },
+          {
+            "text": "NAT",
+            "isCorrect": false
+          },
+          {
+            "text": "Intranet",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the key difference between TACACS+ and RADIUS protocols?",
+        "explanation": "TACACS+ encrypts the entire body of the packet and separates AAA components, while RADIUS only encrypts the password.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "TACACS+ encrypts the entire packet body and separates authentication and authorization",
+            "isCorrect": true
+          },
+          {
+            "text": "RADIUS encrypts the entire packet",
+            "isCorrect": false
+          },
+          {
+            "text": "TACACS+ is an open standard, while RADIUS is proprietary Cisco",
+            "isCorrect": false
+          },
+          {
+            "text": "RADIUS uses TCP, while TACACS+ uses UDP",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which tool performs passive OS fingerprinting by analyzing capture files or live network streams?",
+        "explanation": "p0f is a passive OS fingerprinting tool that analyzes TCP packet structures without generating any network traffic.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "p0f",
+            "isCorrect": true
+          },
+          {
+            "text": "Nmap",
+            "isCorrect": false
+          },
+          {
+            "text": "Wireshark",
+            "isCorrect": false
+          },
+          {
+            "text": "Nessus",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What protocol prevents bridge loops on ethernet networks by disabling redundant paths?",
+        "explanation": "Spanning Tree Protocol (STP) prevents network loops by identifying redundant paths and blocking ports.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "STP",
+            "isCorrect": true
+          },
+          {
+            "text": "OSPF",
+            "isCorrect": false
+          },
+          {
+            "text": "BGP",
+            "isCorrect": false
+          },
+          {
+            "text": "RIP",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which VPN protocol utilizes SSL/TLS to establish connections on TCP port 443, making it highly effective at bypassing restrictive firewalls?",
+        "explanation": "SSTP uses HTTPS (SSL/TLS over port 443), allowing it to pass through most firewalls that permit standard web browsing.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "SSTP",
+            "isCorrect": true
+          },
+          {
+            "text": "PPTP",
+            "isCorrect": false
+          },
+          {
+            "text": "L2TP/IPsec",
+            "isCorrect": false
+          },
+          {
+            "text": "GRE",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the primary risk of enabling UPnP on a home router?",
+        "explanation": "UPnP allows devices on the local network to automatically open firewall ports without authentication, allowing malware to expose internal services.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Allows internal devices to open inbound ports automatically without auth",
+            "isCorrect": true
+          },
+          {
+            "text": "Slows down internet connection speeds",
+            "isCorrect": false
+          },
+          {
+            "text": "Exposes the router's admin interface",
+            "isCorrect": false
+          },
+          {
+            "text": "Disables wireless encryption",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "cryptography",
-    questions: [
+    "categorySlug": "cryptography",
+    "questions": [
       {
-        text: "What is a nonce in cryptographic protocols?",
-        explanation: "A nonce is a 'number used once' to prevent replay attacks and ensure freshness of messages in a protocol.",
-        difficulty: "Advanced",
-        options: [
-          { text: "A random number used once to prevent replay", isCorrect: true },
-          { text: "A type of hash function", isCorrect: false },
-          { text: "An encryption key", isCorrect: false },
-          { text: "A compression algorithm", isCorrect: false },
-        ],
+        "text": "What is a nonce in cryptographic protocols?",
+        "explanation": "A nonce is a 'number used once' to prevent replay attacks and ensure freshness of messages in a protocol.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "A random number used once to prevent replay",
+            "isCorrect": true
+          },
+          {
+            "text": "A type of hash function",
+            "isCorrect": false
+          },
+          {
+            "text": "An encryption key",
+            "isCorrect": false
+          },
+          {
+            "text": "A compression algorithm",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "Which hash function produces a 256-bit output?",
-        explanation: "SHA-256 produces a 256-bit (32-byte) digest and is part of the SHA-2 family.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "MD5", isCorrect: false },
-          { text: "SHA-1", isCorrect: false },
-          { text: "SHA-256", isCorrect: true },
-          { text: "CRC32", isCorrect: false },
-        ],
+        "text": "Which hash function produces a 256-bit output?",
+        "explanation": "SHA-256 produces a 256-bit (32-byte) digest and is part of the SHA-2 family.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "MD5",
+            "isCorrect": false
+          },
+          {
+            "text": "SHA-1",
+            "isCorrect": false
+          },
+          {
+            "text": "SHA-256",
+            "isCorrect": true
+          },
+          {
+            "text": "CRC32",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "Which algorithm is a symmetric block cipher selected by NIST as the AES standard?",
+        "explanation": "Rijndael is the symmetric block cipher selected by NIST to serve as the Advanced Encryption Standard (AES).",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Rijndael",
+            "isCorrect": true
+          },
+          {
+            "text": "RSA",
+            "isCorrect": false
+          },
+          {
+            "text": "Diffie-Hellman",
+            "isCorrect": false
+          },
+          {
+            "text": "Blowfish",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the key size of the AES-256 standard?",
+        "explanation": "AES-256 uses a symmetric key size of 256 bits.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "256 bits",
+            "isCorrect": true
+          },
+          {
+            "text": "128 bits",
+            "isCorrect": false
+          },
+          {
+            "text": "512 bits",
+            "isCorrect": false
+          },
+          {
+            "text": "1024 bits",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which cryptographic attack attempts to find two distinct inputs that produce the same hash output?",
+        "explanation": "A collision attack aims to find two different messages that produce the same hash value.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Collision attack",
+            "isCorrect": true
+          },
+          {
+            "text": "Replay attack",
+            "isCorrect": false
+          },
+          {
+            "text": "Brute-force attack",
+            "isCorrect": false
+          },
+          {
+            "text": "Known-plaintext attack",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "In public-key cryptography, what key is used to decrypt a message that was encrypted using a user's public key?",
+        "explanation": "A message encrypted with a public key can only be decrypted by the corresponding private key.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "The receiver's private key",
+            "isCorrect": true
+          },
+          {
+            "text": "The sender's private key",
+            "isCorrect": false
+          },
+          {
+            "text": "The receiver's public key",
+            "isCorrect": false
+          },
+          {
+            "text": "A symmetric session key",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What mathematical problem forms the basis of the RSA public-key cryptosystem?",
+        "explanation": "RSA's security relies on the difficulty of factoring the product of two large prime numbers.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Integer factorization of large primes",
+            "isCorrect": true
+          },
+          {
+            "text": "Discrete logarithm problem",
+            "isCorrect": false
+          },
+          {
+            "text": "Elliptic curve point multiplication",
+            "isCorrect": false
+          },
+          {
+            "text": "Knapsack problem",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which hash algorithm is deprecated due to structural weaknesses that allow rapid collision generation?",
+        "explanation": "MD5 is widely considered cryptographically broken due to vulnerabilities allowing collision attacks in seconds.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "MD5",
+            "isCorrect": true
+          },
+          {
+            "text": "SHA-256",
+            "isCorrect": false
+          },
+          {
+            "text": "SHA-3",
+            "isCorrect": false
+          },
+          {
+            "text": "bcrypt",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is key stretching?",
+        "explanation": "Key stretching methods (like PBKDF2 or bcrypt) run passwords through hash algorithms thousands of times to make brute-force attacks slower.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Hashing a password multiple times to slow down brute force",
+            "isCorrect": true
+          },
+          {
+            "text": "Adding length to a password with salt",
+            "isCorrect": false
+          },
+          {
+            "text": "Encrypting a key with another key",
+            "isCorrect": false
+          },
+          {
+            "text": "Splitting a key among multiple users",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which mode of operation encrypts each block of plaintext independently, meaning identical blocks yield identical ciphertext?",
+        "explanation": "Electronic Codebook (ECB) mode encrypts blocks independently, which preserves patterns in the ciphertext and compromises security.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "ECB (Electronic Codebook)",
+            "isCorrect": true
+          },
+          {
+            "text": "CBC (Cipher Block Chaining)",
+            "isCorrect": false
+          },
+          {
+            "text": "GCM (Galois/Counter Mode)",
+            "isCorrect": false
+          },
+          {
+            "text": "OFB (Output Feedback)",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What does the Diffie-Hellman algorithm accomplish?",
+        "explanation": "Diffie-Hellman allows two parties to securely establish a shared secret key over an insecure channel.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Secure exchange of a shared secret key",
+            "isCorrect": true
+          },
+          {
+            "text": "Digital signature verification",
+            "isCorrect": false
+          },
+          {
+            "text": "Symmetric block encryption",
+            "isCorrect": false
+          },
+          {
+            "text": "Message integrity verification",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which standard provides format specifications for digital certificates used in PKI environments?",
+        "explanation": "ITU-T X.509 is the international standard specifying public key certificates formats.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "X.509",
+            "isCorrect": true
+          },
+          {
+            "text": "PKCS #11",
+            "isCorrect": false
+          },
+          {
+            "text": "RFC 1918",
+            "isCorrect": false
+          },
+          {
+            "text": "FIPS 140-2",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What security property ensures that even if a long-term private key is compromised in the future, past session keys remain secure?",
+        "explanation": "Perfect Forward Secrecy (PFS) ensures that compromise of a long-term key does not compromise past session keys.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Perfect Forward Secrecy",
+            "isCorrect": true
+          },
+          {
+            "text": "Non-repudiation",
+            "isCorrect": false
+          },
+          {
+            "text": "Ciphertext indistinguishability",
+            "isCorrect": false
+          },
+          {
+            "text": "Zero-knowledge proofs",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which hash algorithm is specifically designed to be resource-intensive, mitigating ASIC and GPU-based brute-force acceleration?",
+        "explanation": "Argon2 is the winner of the Password Hashing Competition, designed to consume configurable amounts of memory and CPU cycles to thwart GPU/ASIC attacks.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Argon2",
+            "isCorrect": true
+          },
+          {
+            "text": "MD5",
+            "isCorrect": false
+          },
+          {
+            "text": "PBKDF2",
+            "isCorrect": false
+          },
+          {
+            "text": "SHA-512",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is homomorphic encryption?",
+        "explanation": "Homomorphic encryption allows computation to be performed directly on ciphertexts, generating an encrypted result that matches the decrypted operations.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Encryption that allows computation on ciphertexts without decryption",
+            "isCorrect": true
+          },
+          {
+            "text": "Encryption using keys that change dynamically",
+            "isCorrect": false
+          },
+          {
+            "text": "A cipher that resists quantum computer decryption",
+            "isCorrect": false
+          },
+          {
+            "text": "Multi-factor authentication key wrapping",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which encryption type uses the exact same key for both encryption and decryption?",
+        "explanation": "Symmetric cryptography uses a single shared secret key for encryption and decryption.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Symmetric encryption",
+            "isCorrect": true
+          },
+          {
+            "text": "Asymmetric encryption",
+            "isCorrect": false
+          },
+          {
+            "text": "Hash-based signature",
+            "isCorrect": false
+          },
+          {
+            "text": "Diffie-Hellman exchange",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "web-security",
-    questions: [
+    "categorySlug": "web-security",
+    "questions": [
       {
-        text: "What is an HTTP response splitting attack?",
-        explanation: "HTTP response splitting injects CRLF sequences into headers to split the response, enabling cache poisoning or XSS.",
-        difficulty: "Advanced",
-        options: [
-          { text: "Injecting CRLF to split and manipulate responses", isCorrect: true },
-          { text: "Dividing a server into two", isCorrect: false },
-          { text: "Splitting bandwidth costs", isCorrect: false },
-          { text: "A load balancing technique", isCorrect: false },
-        ],
+        "text": "What is an HTTP response splitting attack?",
+        "explanation": "HTTP response splitting injects CRLF sequences into headers to split the response, enabling cache poisoning or XSS.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Injecting CRLF to split and manipulate responses",
+            "isCorrect": true
+          },
+          {
+            "text": "Dividing a server into two",
+            "isCorrect": false
+          },
+          {
+            "text": "Splitting bandwidth costs",
+            "isCorrect": false
+          },
+          {
+            "text": "A load balancing technique",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "Which attribute marks a cookie inaccessible to JavaScript, mitiguting XSS-based theft?",
-        explanation: "The HttpOnly attribute prevents client-side scripts from accessing the cookie, reducing theft via XSS.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "HttpOnly", isCorrect: true },
-          { text: "Public", isCorrect: false },
-          { text: "JS-Enabled", isCorrect: false },
-          { text: "Readable", isCorrect: false },
-        ],
+        "text": "Which attribute marks a cookie inaccessible to JavaScript, mitiguting XSS-based theft?",
+        "explanation": "The HttpOnly attribute prevents client-side scripts from accessing the cookie, reducing theft via XSS.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "HttpOnly",
+            "isCorrect": true
+          },
+          {
+            "text": "Public",
+            "isCorrect": false
+          },
+          {
+            "text": "JS-Enabled",
+            "isCorrect": false
+          },
+          {
+            "text": "Readable",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "Which OWASP top threat is characterized by XML input parsing that references external entities containing sensitive data?",
+        "explanation": "XXE (XML External Entity) attacks exploit weaknesses in XML parsers to access files or perform Server-Side Request Forgery.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "XXE injection",
+            "isCorrect": true
+          },
+          {
+            "text": "Cross-Site Scripting (XSS)",
+            "isCorrect": false
+          },
+          {
+            "text": "Broken Access Control",
+            "isCorrect": false
+          },
+          {
+            "text": "Security Misconfiguration",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the primary defense against SQL injection vulnerabilities?",
+        "explanation": "Parameterized queries (prepared statements) separate input parameters from the SQL command structure, neutralizing SQLi.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Use parameterized queries / prepared statements",
+            "isCorrect": true
+          },
+          {
+            "text": "Base64 encode all inputs",
+            "isCorrect": false
+          },
+          {
+            "text": "Implement client-side length checks",
+            "isCorrect": false
+          },
+          {
+            "text": "Use firewall packet inspection",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which HTTP response header mitigates XSS by specifying allowed sources of scripts, styles, and other page resources?",
+        "explanation": "Content Security Policy (CSP) headers tell the browser which scripts and resources are authorized to load on the page.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Content-Security-Policy",
+            "isCorrect": true
+          },
+          {
+            "text": "X-Frame-Options",
+            "isCorrect": false
+          },
+          {
+            "text": "Strict-Transport-Security",
+            "isCorrect": false
+          },
+          {
+            "text": "Referrer-Policy",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability occurs when an application executes command strings constructed from unsanitized user inputs in a system shell?",
+        "explanation": "OS Command Injection allows attackers to execute arbitrary shell commands directly on the server host.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "OS Command Injection",
+            "isCorrect": true
+          },
+          {
+            "text": "Directory Traversal",
+            "isCorrect": false
+          },
+          {
+            "text": "SQL Injection",
+            "isCorrect": false
+          },
+          {
+            "text": "Local File Inclusion",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which cookie attribute ensures that cookies are only sent over HTTPS connections, protecting them from network interception?",
+        "explanation": "The Secure attribute instructs the browser to restrict transmission of the cookie to HTTPS channels.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Secure",
+            "isCorrect": true
+          },
+          {
+            "text": "HttpOnly",
+            "isCorrect": false
+          },
+          {
+            "text": "SameSite",
+            "isCorrect": false
+          },
+          {
+            "text": "Domain",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability allows an attacker to manipulate a server into making unauthorized outbound HTTP requests on the attacker's behalf?",
+        "explanation": "Server-Side Request Forgery (SSRF) abuses a server's functionality to target internal infrastructure or third-party APIs.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "SSRF (Server-Side Request Forgery)",
+            "isCorrect": true
+          },
+          {
+            "text": "CSRF (Cross-Site Request Forgery)",
+            "isCorrect": false
+          },
+          {
+            "text": "XSS (Cross-Site Scripting)",
+            "isCorrect": false
+          },
+          {
+            "text": "Subdomain Takeover",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which cookie attribute restricts cross-site request sending, reducing susceptibility to CSRF attacks?",
+        "explanation": "The SameSite attribute (Lax/Strict) prevents cookies from being sent with cross-site requests, mitigating CSRF.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "SameSite",
+            "isCorrect": true
+          },
+          {
+            "text": "HttpOnly",
+            "isCorrect": false
+          },
+          {
+            "text": "Path",
+            "isCorrect": false
+          },
+          {
+            "text": "Expires",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What HTTP header implements HTTP Strict Transport Security (HSTS)?",
+        "explanation": "Strict-Transport-Security (HSTS) enforces HTTPS connections, reducing the risk of SSL stripping attacks.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Strict-Transport-Security",
+            "isCorrect": true
+          },
+          {
+            "text": "X-Content-Type-Options",
+            "isCorrect": false
+          },
+          {
+            "text": "X-XSS-Protection",
+            "isCorrect": false
+          },
+          {
+            "text": "Content-Security-Policy",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which XSS type embeds malicious script inputs directly in the target website database, executing them whenever users retrieve the page?",
+        "explanation": "Stored XSS (or Persistent XSS) occurs when malicious code is permanently stored on the target server and rendered to visitors.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Stored XSS",
+            "isCorrect": true
+          },
+          {
+            "text": "Reflected XSS",
+            "isCorrect": false
+          },
+          {
+            "text": "DOM-based XSS",
+            "isCorrect": false
+          },
+          {
+            "text": "Blind XSS",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability occurs when an API fails to verify user access rights to specific object identifiers, allowing users to read records belonging to others?",
+        "explanation": "Insecure Direct Object Reference (IDOR), classified under Broken Object Level Authorization (BOLA), happens when data access controls are not checked against object references.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "IDOR / BOLA",
+            "isCorrect": true
+          },
+          {
+            "text": "CSRF",
+            "isCorrect": false
+          },
+          {
+            "text": "SSRF",
+            "isCorrect": false
+          },
+          {
+            "text": "HTTP Parameter Pollution",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What attack alters the execution state of an application by modifying deserialized data payloads?",
+        "explanation": "Insecure Deserialization occurs when untrusted data is deserialized, allowing attackers to perform object injection, access control bypass, or remote code execution.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Insecure Deserialization",
+            "isCorrect": true
+          },
+          {
+            "text": "XML External Entity",
+            "isCorrect": false
+          },
+          {
+            "text": "SQL Injection",
+            "isCorrect": false
+          },
+          {
+            "text": "Session Fixation",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which attack injects HTTP headers into a server response, potentially executing XSS or manipulating proxy cache entries?",
+        "explanation": "HTTP Response Splitting allows attackers to append HTTP response headers, leading to cache poisoning, header injection, or XSS.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "HTTP Response Splitting",
+            "isCorrect": true
+          },
+          {
+            "text": "HTTP Request Smuggling",
+            "isCorrect": false
+          },
+          {
+            "text": "XSS",
+            "isCorrect": false
+          },
+          {
+            "text": "Session Hijacking",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which mechanism mitigates clickjacking by instructing the browser whether a page can render inside an iframe?",
+        "explanation": "X-Frame-Options (or CSP's frame-ancestors directive) prevents clickjacking by instructing browsers not to load frames containing the page.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "X-Frame-Options / frame-ancestors",
+            "isCorrect": true
+          },
+          {
+            "text": "Strict-Transport-Security",
+            "isCorrect": false
+          },
+          {
+            "text": "X-Content-Type-Options",
+            "isCorrect": false
+          },
+          {
+            "text": "CORS",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability involves exploiting discrepancies in how a front-end reverse proxy and a back-end server parse Content-Length and Transfer-Encoding headers?",
+        "explanation": "HTTP Request Smuggling exploits discrepancies between front-end and back-end parser boundaries to insert requests directly into the stream pipeline.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "HTTP Request Smuggling",
+            "isCorrect": true
+          },
+          {
+            "text": "HTTP Parameter Pollution",
+            "isCorrect": false
+          },
+          {
+            "text": "SSRF",
+            "isCorrect": false
+          },
+          {
+            "text": "Cross-Site Scripting",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "malware-threats",
-    questions: [
+    "categorySlug": "malware-threats",
+    "questions": [
       {
-        text: "What is fileless malware?",
-        explanation: "Fileless malware resides in memory (e.g., via PowerShell/WMI) and avoids writing files to disk, evading traditional AV signatures.",
-        difficulty: "Advanced",
-        options: [
-          { text: "Malware that runs in memory without files on disk", isCorrect: true },
-          { text: "Malware that deletes all files", isCorrect: false },
-          { text: "Malware disguised as images", isCorrect: false },
-          { text: "Malware that only affects printers", isCorrect: false },
-        ],
+        "text": "What is fileless malware?",
+        "explanation": "Fileless malware resides in memory (e.g., via PowerShell/WMI) and avoids writing files to disk, evading traditional AV signatures.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Malware that runs in memory without files on disk",
+            "isCorrect": true
+          },
+          {
+            "text": "Malware that deletes all files",
+            "isCorrect": false
+          },
+          {
+            "text": "Malware disguised as images",
+            "isCorrect": false
+          },
+          {
+            "text": "Malware that only affects printers",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "What is a command-and-control (C2) server?",
-        explanation: "A C2 server is the attacker-controlled infrastructure used to send commands to and receive exfiltrated data from compromised hosts.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "Attacker infrastructure controlling compromised hosts", isCorrect: true },
-          { text: "A legitimate backup server", isCorrect: false },
-          { text: "A DNS resolver", isCorrect: false },
-          { text: "A firewall management console", isCorrect: false },
-        ],
+        "text": "What is a command-and-control (C2) server?",
+        "explanation": "A C2 server is the attacker-controlled infrastructure used to send commands to and receive exfiltrated data from compromised hosts.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Attacker infrastructure controlling compromised hosts",
+            "isCorrect": true
+          },
+          {
+            "text": "A legitimate backup server",
+            "isCorrect": false
+          },
+          {
+            "text": "A DNS resolver",
+            "isCorrect": false
+          },
+          {
+            "text": "A firewall management console",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "What is ransomware?",
+        "explanation": "Ransomware is a malware type that encrypts a victim's files and demands payment to restore access.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Malware that encrypts files and demands payment",
+            "isCorrect": true
+          },
+          {
+            "text": "Malware that records keystrokes",
+            "isCorrect": false
+          },
+          {
+            "text": "Malware that redirects web traffic",
+            "isCorrect": false
+          },
+          {
+            "text": "Malware that mines cryptocurrency",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which type of malware actively hides its presence and processes by hooking OS system calls?",
+        "explanation": "Rootkits operate with high system privileges to modify system files and kernel calls, hiding processes and utilities.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Rootkit",
+            "isCorrect": true
+          },
+          {
+            "text": "Trojan horse",
+            "isCorrect": false
+          },
+          {
+            "text": "Spyware",
+            "isCorrect": false
+          },
+          {
+            "text": "Worm",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the defining characteristic of a computer worm?",
+        "explanation": "Worms replicate and spread across network segments autonomously without requiring human interaction or a host program.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Self-replication across networks without user action",
+            "isCorrect": true
+          },
+          {
+            "text": "Requires attaching to an executable file",
+            "isCorrect": false
+          },
+          {
+            "text": "Only target social media platforms",
+            "isCorrect": false
+          },
+          {
+            "text": "Disguised as useful software",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which malware component contains the actual malicious routine (e.g. file encryption or data extraction)?",
+        "explanation": "The payload is the portion of malware code that executes the malicious objectives of the attacker.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Payload",
+            "isCorrect": true
+          },
+          {
+            "text": "Dropper",
+            "isCorrect": false
+          },
+          {
+            "text": "Crypter",
+            "isCorrect": false
+          },
+          {
+            "text": "Obfuscator",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What mechanism do modern botnets use to communicate and locate control servers dynamically without hardcoded IPs?",
+        "explanation": "Domain Generation Algorithms (DGAs) generate random-looking domain names dynamically, allowing botnets to contact new control servers.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Domain Generation Algorithms (DGA)",
+            "isCorrect": true
+          },
+          {
+            "text": "SMTP relaying",
+            "isCorrect": false
+          },
+          {
+            "text": "Static IP lists",
+            "isCorrect": false
+          },
+          {
+            "text": "Dynamic ARP inspection",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which technique modifies executable code structures without changing the underlying logical flow to evade signature detection?",
+        "explanation": "Polymorphic malware changes its code signature (often using varying encryption routines) each time it replicates, evading static detection.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Polymorphism",
+            "isCorrect": true
+          },
+          {
+            "text": "Sandboxing",
+            "isCorrect": false
+          },
+          {
+            "text": "Reverse engineering",
+            "isCorrect": false
+          },
+          {
+            "text": "Heuristics",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of attack targets software developers or update infrastructure to insert malicious updates into clean software?",
+        "explanation": "Supply chain attacks target intermediate packages, dependencies, or build systems to inject malware into trusted distributions.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Supply chain attack",
+            "isCorrect": true
+          },
+          {
+            "text": "Watering hole attack",
+            "isCorrect": false
+          },
+          {
+            "text": "Phishing attack",
+            "isCorrect": false
+          },
+          {
+            "text": "Man-in-the-Middle attack",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which malware evasion technique executes code entirely in system RAM without writing a filesytem binary?",
+        "explanation": "Fileless malware executes code from memory streams or native shells (like PowerShell), leaving no disk artifacts.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Fileless malware execution",
+            "isCorrect": true
+          },
+          {
+            "text": "Static compilation",
+            "isCorrect": false
+          },
+          {
+            "text": "Data exfiltration",
+            "isCorrect": false
+          },
+          {
+            "text": "Process hollowing",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of threat actor possesses high funding levels, operates sophisticated malware, and targets critical assets over long periods?",
+        "explanation": "Advanced Persistent Threats (APTs) are highly funded, nation-state sponsored groups carrying out stealthy long-term operations.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Advanced Persistent Threat (APT)",
+            "isCorrect": true
+          },
+          {
+            "text": "Script kiddie",
+            "isCorrect": false
+          },
+          {
+            "text": "Hacktivist",
+            "isCorrect": false
+          },
+          {
+            "text": "Insider threat",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which evasion method involves an attacker spawning a legitimate OS process in a suspended state, clearing its memory, and replacing it with malicious code?",
+        "explanation": "Process hollowing spawns a benign process, hollows out its memory space, and replaces it with malicious code while keeping the process header.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Process hollowing",
+            "isCorrect": true
+          },
+          {
+            "text": "DLL sideloading",
+            "isCorrect": false
+          },
+          {
+            "text": "API hooking",
+            "isCorrect": false
+          },
+          {
+            "text": "Process injection",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What malware mechanism downloads additional modules onto a compromised system after the initial vector runs?",
+        "explanation": "A dropper is a small utility program whose sole purpose is to download and install more complex malware payloads.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Dropper / Downloader",
+            "isCorrect": true
+          },
+          {
+            "text": "Rootkit installer",
+            "isCorrect": false
+          },
+          {
+            "text": "Adware injector",
+            "isCorrect": false
+          },
+          {
+            "text": "Keylogger backend",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which attack compromises websites that target users frequently visit in order to infect their computers?",
+        "explanation": "A watering hole attack identifies site locations specific targets visit, compromises those sites, and waits for targets to visit.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Watering hole attack",
+            "isCorrect": true
+          },
+          {
+            "text": "Spear phishing",
+            "isCorrect": false
+          },
+          {
+            "text": "Vishing",
+            "isCorrect": false
+          },
+          {
+            "text": "Whaling",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is a logical bomb?",
+        "explanation": "A logic bomb is a set of instructions secretly incorporated into a program that lies dormant until triggered by a specific event (date, time, or file creation).",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Malware triggered by a specific condition or event",
+            "isCorrect": true
+          },
+          {
+            "text": "A physical hardware exploit",
+            "isCorrect": false
+          },
+          {
+            "text": "A type of network denial of service",
+            "isCorrect": false
+          },
+          {
+            "text": "A highly destructive ransomware variant",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which mechanism allows malware to execute by placing a malicious DLL in a directory before a target application attempts to load it?",
+        "explanation": "DLL hijacking exploits search order pathing to load a malicious DLL instead of a legitimate system library.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "DLL hijacking / preloading",
+            "isCorrect": true
+          },
+          {
+            "text": "Process hollowing",
+            "isCorrect": false
+          },
+          {
+            "text": "DLL injection",
+            "isCorrect": false
+          },
+          {
+            "text": "Token manipulation",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "iam",
-    questions: [
+    "categorySlug": "iam",
+    "questions": [
       {
-        text: "What is passkey authentication?",
-        explanation: "Passkeys use public-key cryptography (FIDO2/WebAuthn) tied to a device, replacing passwords with phishing-resistant credentials.",
-        difficulty: "Advanced",
-        options: [
-          { text: "Phishing-resistant public-key credentials on a device", isCorrect: true },
-          { text: "A longer text password", isCorrect: false },
-          { text: "A shared team password", isCorrect: false },
-          { text: "An emailed OTP", isCorrect: false },
-        ],
+        "text": "What is passkey authentication?",
+        "explanation": "Passkeys use public-key cryptography (FIDO2/WebAuthn) tied to a device, replacing passwords with phishing-resistant credentials.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Phishing-resistant public-key credentials on a device",
+            "isCorrect": true
+          },
+          {
+            "text": "A longer text password",
+            "isCorrect": false
+          },
+          {
+            "text": "A shared team password",
+            "isCorrect": false
+          },
+          {
+            "text": "An emailed OTP",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "Which access control model assigns permissions based on attributes and policies?",
-        explanation: "ABAC (Attribute-Based Access Control) evaluates attributes of user, resource, and environment against policies for dynamic decisions.",
-        difficulty: "Advanced",
-        options: [
-          { text: "ABAC", isCorrect: true },
-          { text: "MAC", isCorrect: false },
-          { text: "DAC", isCorrect: false },
-          { text: "RBAC", isCorrect: false },
-        ],
+        "text": "Which access control model assigns permissions based on attributes and policies?",
+        "explanation": "ABAC (Attribute-Based Access Control) evaluates attributes of user, resource, and environment against policies for dynamic decisions.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "ABAC",
+            "isCorrect": true
+          },
+          {
+            "text": "MAC",
+            "isCorrect": false
+          },
+          {
+            "text": "DAC",
+            "isCorrect": false
+          },
+          {
+            "text": "RBAC",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "What type of access control model is based on user roles and assigns permissions to those roles?",
+        "explanation": "RBAC (Role-Based Access Control) assigns permissions to job roles rather than to individual users.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Role-Based Access Control (RBAC)",
+            "isCorrect": true
+          },
+          {
+            "text": "Discretionary Access Control (DAC)",
+            "isCorrect": false
+          },
+          {
+            "text": "Mandatory Access Control (MAC)",
+            "isCorrect": false
+          },
+          {
+            "text": "Attribute-Based Access Control (ABAC)",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which authentication factor is represented by a user's fingerprint or iris scan?",
+        "explanation": "Biometrics represent 'something you are' authentication factors.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Something you are",
+            "isCorrect": true
+          },
+          {
+            "text": "Something you know",
+            "isCorrect": false
+          },
+          {
+            "text": "Something you have",
+            "isCorrect": false
+          },
+          {
+            "text": "Somewhere you are",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which XML-based open standard is used for exchanging authentication and authorization data between an identity provider and a service provider?",
+        "explanation": "Security Assertion Markup Language (SAML) is an XML standard for federated single sign-on (SSO).",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "SAML",
+            "isCorrect": true
+          },
+          {
+            "text": "OAuth 2.0",
+            "isCorrect": false
+          },
+          {
+            "text": "OpenID Connect",
+            "isCorrect": false
+          },
+          {
+            "text": "LDAP",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which authorization framework utilizes JSON Web Tokens (JWT) to permit applications to obtain limited access to user accounts?",
+        "explanation": "OAuth 2.0 is an authorization framework that delegates access token issuance to clients, often using JWT formats.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "OAuth 2.0",
+            "isCorrect": true
+          },
+          {
+            "text": "SAML",
+            "isCorrect": false
+          },
+          {
+            "text": "Kerberos",
+            "isCorrect": false
+          },
+          {
+            "text": "RADIUS",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What access control model restricts access based on system-enforced security clearance levels and data classifications?",
+        "explanation": "Mandatory Access Control (MAC) uses non-discretionary clearances and labels (e.g. Secret, Top Secret) enforced by the OS.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Mandatory Access Control (MAC)",
+            "isCorrect": true
+          },
+          {
+            "text": "Discretionary Access Control (DAC)",
+            "isCorrect": false
+          },
+          {
+            "text": "Role-Based Access Control (RBAC)",
+            "isCorrect": false
+          },
+          {
+            "text": "Rule-Based Access Control",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which authentication protocol uses tickets to authorize users in Active Directory domains?",
+        "explanation": "Kerberos is a ticket-based symmetric authentication protocol widely used in Windows Active Directory.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Kerberos",
+            "isCorrect": true
+          },
+          {
+            "text": "LDAP",
+            "isCorrect": false
+          },
+          {
+            "text": "NTLM",
+            "isCorrect": false
+          },
+          {
+            "text": "TACACS+",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What identity federation protocol adds an authentication layer on top of the OAuth 2.0 framework?",
+        "explanation": "OpenID Connect (OIDC) is a simple identity layer built on top of OAuth 2.0 to provide user authentication.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "OpenID Connect (OIDC)",
+            "isCorrect": true
+          },
+          {
+            "text": "SAML 2.0",
+            "isCorrect": false
+          },
+          {
+            "text": "WS-Trust",
+            "isCorrect": false
+          },
+          {
+            "text": "OAuth 1.0a",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which access control model evaluates environment factors (like time of day, location, and device health) in addition to subject attributes?",
+        "explanation": "Attribute-Based Access Control (ABAC) uses policies that combine subject, object, action, and environment attributes.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Attribute-Based Access Control (ABAC)",
+            "isCorrect": true
+          },
+          {
+            "text": "Mandatory Access Control",
+            "isCorrect": false
+          },
+          {
+            "text": "Discretionary Access Control",
+            "isCorrect": false
+          },
+          {
+            "text": "Role-Based Access Control",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What identity management practice provisionally assigns permissions just in time (JIT) for short intervals, stripping them once completed?",
+        "explanation": "Privileged Access Management (PAM) implements JIT and Just Enough Administration (JEA) concepts to minimize administrative exposures.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Privileged Access Management (PAM)",
+            "isCorrect": true
+          },
+          {
+            "text": "Role delegation",
+            "isCorrect": false
+          },
+          {
+            "text": "Single Sign-On federation",
+            "isCorrect": false
+          },
+          {
+            "text": "Cross-domain trust scoping",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which security model removes implicit trust from network architectures and requires continuous validation at every access boundary?",
+        "explanation": "Zero Trust architecture removes implicit trust, verifying all assets, access requests, and flows continuously.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Zero Trust",
+            "isCorrect": true
+          },
+          {
+            "text": "Perimeter security model",
+            "isCorrect": false
+          },
+          {
+            "text": "Open Systems Interconnection",
+            "isCorrect": false
+          },
+          {
+            "text": "Least privilege model",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability occurs when an application checks password credentials without implementing rate-limiting, allowing attackers to check lists of leaked passwords across multiple accounts?",
+        "explanation": "Credential stuffing uses automated tools to test lists of compromised credentials across multiple web applications.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Credential Stuffing",
+            "isCorrect": true
+          },
+          {
+            "text": "Password Spraying",
+            "isCorrect": false
+          },
+          {
+            "text": "Brute Force",
+            "isCorrect": false
+          },
+          {
+            "text": "Session Fixation",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What attack targets the Kerberos protocol by requesting service tickets and attempting to crack the service account password hashes offline?",
+        "explanation": "Kerberoasting allows attackers with a domain account to request service tickets for any SPN, extracting hashes to crack offline.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Kerberoasting",
+            "isCorrect": true
+          },
+          {
+            "text": "AS-REP Roasting",
+            "isCorrect": false
+          },
+          {
+            "text": "Pass-the-Hash",
+            "isCorrect": false
+          },
+          {
+            "text": "Golden Ticket Attack",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which authentication technique allows a user to sign in once and gain access to multiple unrelated software systems?",
+        "explanation": "Single Sign-On (SSO) enables access to multiple applications after a single authentication event.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Single Sign-On (SSO)",
+            "isCorrect": true
+          },
+          {
+            "text": "Multifactor authentication",
+            "isCorrect": false
+          },
+          {
+            "text": "Federation sharing",
+            "isCorrect": false
+          },
+          {
+            "text": "Kerberos ticket leasing",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability occurs when an attacker obtains password hashes from memory and uses them directly to authenticate to server systems without cracking them?",
+        "explanation": "Pass-the-Hash (PtH) exploits systems accepting NTLM/Kerberos hashes directly, allowing authentication without the cleartext password.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Pass-the-Hash",
+            "isCorrect": true
+          },
+          {
+            "text": "Credential Harvesting",
+            "isCorrect": false
+          },
+          {
+            "text": "AS-REP Roasting",
+            "isCorrect": false
+          },
+          {
+            "text": "Overpass-the-Hash",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "security-operations",
-    questions: [
+    "categorySlug": "security-operations",
+    "questions": [
       {
-        text: "What is EDR?",
-        explanation: "EDR (Endpoint Detection and Response) provides continuous monitoring and response on endpoints, detecting advanced threats beyond signatures.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "Endpoint Detection and Response", isCorrect: true },
-          { text: "Event Data Repository", isCorrect: false },
-          { text: "External Data Router", isCorrect: false },
-          { text: "Encrypted Data Record", isCorrect: false },
-        ],
+        "text": "What is EDR?",
+        "explanation": "EDR (Endpoint Detection and Response) provides continuous monitoring and response on endpoints, detecting advanced threats beyond signatures.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Endpoint Detection and Response",
+            "isCorrect": true
+          },
+          {
+            "text": "Event Data Repository",
+            "isCorrect": false
+          },
+          {
+            "text": "External Data Router",
+            "isCorrect": false
+          },
+          {
+            "text": "Encrypted Data Record",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "What does an IoC represent in threat intelligence?",
-        explanation: "An Indicator of Compromise is observable evidence (IP, hash, domain) that an intrusion or malicious activity has occurred.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "Indicator of Compromise", isCorrect: true },
-          { text: "Internet of Computers", isCorrect: false },
-          { text: "Internal Operations Center", isCorrect: false },
-          { text: "Index of Compliance", isCorrect: false },
-        ],
+        "text": "What does an IoC represent in threat intelligence?",
+        "explanation": "An Indicator of Compromise is observable evidence (IP, hash, domain) that an intrusion or malicious activity has occurred.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Indicator of Compromise",
+            "isCorrect": true
+          },
+          {
+            "text": "Internet of Computers",
+            "isCorrect": false
+          },
+          {
+            "text": "Internal Operations Center",
+            "isCorrect": false
+          },
+          {
+            "text": "Index of Compliance",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "Which system collects, aggregates, and analyzes log data from across an enterprise network to detect anomalies?",
+        "explanation": "SIEM (Security Information and Event Management) systems aggregate logs, perform correlation, and generate alerts.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "SIEM",
+            "isCorrect": true
+          },
+          {
+            "text": "IDS",
+            "isCorrect": false
+          },
+          {
+            "text": "IPS",
+            "isCorrect": false
+          },
+          {
+            "text": "WAF",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the first step in the incident response lifecycle according to NIST SP 800-61?",
+        "explanation": "Preparation is the foundational first phase of the NIST incident response process.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Preparation",
+            "isCorrect": true
+          },
+          {
+            "text": "Detection & Analysis",
+            "isCorrect": false
+          },
+          {
+            "text": "Containment, Eradication & Recovery",
+            "isCorrect": false
+          },
+          {
+            "text": "Post-Incident Activity",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What technology allows security teams to automate responses to common alerts (e.g., isolating a host upon malware detection)?",
+        "explanation": "SOAR (Security Orchestration, Automation, and Response) automates tasks, playbooks, and incident workflows.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "SOAR",
+            "isCorrect": true
+          },
+          {
+            "text": "SIEM",
+            "isCorrect": false
+          },
+          {
+            "text": "NIDS",
+            "isCorrect": false
+          },
+          {
+            "text": "EDR",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which framework maps real-world adversary tactics, techniques, and procedures (TTPs) observed in the wild?",
+        "explanation": "MITRE ATT&CK is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "MITRE ATT&CK",
+            "isCorrect": true
+          },
+          {
+            "text": "ISO 27001",
+            "isCorrect": false
+          },
+          {
+            "text": "PCI DSS",
+            "isCorrect": false
+          },
+          {
+            "text": "COBIT",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the difference between RTO and RPO?",
+        "explanation": "Recovery Time Objective (RTO) is the target time to restore systems, whereas Recovery Point Objective (RPO) is the maximum acceptable data loss in time.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "RTO is target restore time, RPO is maximum data loss duration",
+            "isCorrect": true
+          },
+          {
+            "text": "RTO is data volume, RPO is system speed",
+            "isCorrect": false
+          },
+          {
+            "text": "RPO is target restore time, RTO is maximum data loss",
+            "isCorrect": false
+          },
+          {
+            "text": "RTO deals with database logs, RPO deals with hypervisors",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which monitoring capability focuses on detecting and alerting on anomalous behavior occurring directly on endpoint devices?",
+        "explanation": "EDR (Endpoint Detection and Response) monitors endpoints (computers, servers) for threat signatures and behaviors.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "EDR",
+            "isCorrect": true
+          },
+          {
+            "text": "NIDS",
+            "isCorrect": false
+          },
+          {
+            "text": "Honeypot",
+            "isCorrect": false
+          },
+          {
+            "text": "SIEM",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What model traces the phases of a cyberattack from initial reconnaissance to the execution of objectives?",
+        "explanation": "The Cyber Kill Chain (developed by Lockheed Martin) outlines the steps of an external intrusion.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Cyber Kill Chain",
+            "isCorrect": true
+          },
+          {
+            "text": "CVSS Scoring System",
+            "isCorrect": false
+          },
+          {
+            "text": "OWASP Top 10",
+            "isCorrect": false
+          },
+          {
+            "text": "STRIDE Threat Modeling",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What threat intelligence concept describes the relationships between adversaries, infrastructure, capabilities, and victims?",
+        "explanation": "The Diamond Model of Intrusion Analysis maps cybersecurity incidents across four nodes: Adversary, Infrastructure, Capability, and Victim.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "The Diamond Model",
+            "isCorrect": true
+          },
+          {
+            "text": "The Cyber Kill Chain",
+            "isCorrect": false
+          },
+          {
+            "text": "Pyramid of Pain",
+            "isCorrect": false
+          },
+          {
+            "text": "MITRE Matrix",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which indicator of compromise (IoC) is considered the most difficult for attackers to change according to the Pyramid of Pain?",
+        "explanation": "Adversary TTPs (Tactics, Techniques, and Procedures) are at the top of the Pyramid of Pain and are the hardest for attackers to change.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "TTPs (Tactics, Techniques, and Procedures)",
+            "isCorrect": true
+          },
+          {
+            "text": "IP Addresses",
+            "isCorrect": false
+          },
+          {
+            "text": "Domain Names",
+            "isCorrect": false
+          },
+          {
+            "text": "File Hashes",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What active defense mechanism replicates production assets to lure attackers and collect threat intelligence?",
+        "explanation": "Honeypots are decoy resources designed to lure, delay, and analyze unauthorized activity.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Honeypots",
+            "isCorrect": true
+          },
+          {
+            "text": "WAF block rules",
+            "isCorrect": false
+          },
+          {
+            "text": "Sinkholing",
+            "isCorrect": false
+          },
+          {
+            "text": "Active Directory domains",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which metric measures the average time it takes for a security team to identify a security threat after initial compromise?",
+        "explanation": "Mean Time to Detect (MTTD) measures the average duration between breach start and threat detection.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "MTTD (Mean Time to Detect)",
+            "isCorrect": true
+          },
+          {
+            "text": "MTTR (Mean Time to Respond)",
+            "isCorrect": false
+          },
+          {
+            "text": "MTTF (Mean Time to Failure)",
+            "isCorrect": false
+          },
+          {
+            "text": "MTTC (Mean Time to Contain)",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of backup retains all changes made since the last FULL backup, requiring only two backups to restore systems?",
+        "explanation": "Differential backups copy all files changed since the last full backup, keeping restore simple. (Incremental only saves changes since the last incremental backup).",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Differential backup",
+            "isCorrect": true
+          },
+          {
+            "text": "Incremental backup",
+            "isCorrect": false
+          },
+          {
+            "text": "Mirror backup",
+            "isCorrect": false
+          },
+          {
+            "text": "Continuous backup",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which threat intelligence format uses an XML schema to represent cyber threat information, often paired with TAXII transport?",
+        "explanation": "STIX (Structured Threat Information eXpression) is an XML/JSON format for exchanging cyber threat intelligence.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "STIX",
+            "isCorrect": true
+          },
+          {
+            "text": "TAXII",
+            "isCorrect": false
+          },
+          {
+            "text": "JSON-LD",
+            "isCorrect": false
+          },
+          {
+            "text": "CVE",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability classification system provides a standardized numerical score reflecting a vulnerability's severity and impact?",
+        "explanation": "Common Vulnerability Scoring System (CVSS) calculates score ratings based on metrics like access vector, complexity, and authentication.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "CVSS",
+            "isCorrect": true
+          },
+          {
+            "text": "CVE",
+            "isCorrect": false
+          },
+          {
+            "text": "CWE",
+            "isCorrect": false
+          },
+          {
+            "text": "CAPEC",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "cloud-security",
-    questions: [
+    "categorySlug": "cloud-security",
+    "questions": [
       {
-        text: "What is the cloud 'blast radius'?",
-        explanation: "Blast radius is the potential extent of damage if a cloud identity/resource is compromised; minimizing it limits impact.",
-        difficulty: "Advanced",
-        options: [
-          { text: "The extent of damage if a cloud identity is compromised", isCorrect: true },
-          { text: "The size of a cloud data center", isCorrect: false },
-          { text: "The latency of cloud APIs", isCorrect: false },
-          { text: "The cost of cloud storage", isCorrect: false },
-        ],
+        "text": "What is the cloud 'blast radius'?",
+        "explanation": "Blast radius is the potential extent of damage if a cloud identity/resource is compromised; minimizing it limits impact.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "The extent of damage if a cloud identity is compromised",
+            "isCorrect": true
+          },
+          {
+            "text": "The size of a cloud data center",
+            "isCorrect": false
+          },
+          {
+            "text": "The latency of cloud APIs",
+            "isCorrect": false
+          },
+          {
+            "text": "The cost of cloud storage",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "What is the zero-trust principle applied to cloud workloads?",
-        explanation: "Workload identity and micro-segmentation verify every request between services, assuming no implicit trust between workloads.",
-        difficulty: "Advanced",
-        options: [
-          { text: "Verify every request between workloads, no implicit trust", isCorrect: true },
-          { text: "Trust all internal traffic", isCorrect: false },
-          { text: "Disable logging to save cost", isCorrect: false },
-          { text: "Use a single shared credential", isCorrect: false },
-        ],
+        "text": "What is the zero-trust principle applied to cloud workloads?",
+        "explanation": "Workload identity and micro-segmentation verify every request between services, assuming no implicit trust between workloads.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Verify every request between workloads, no implicit trust",
+            "isCorrect": true
+          },
+          {
+            "text": "Trust all internal traffic",
+            "isCorrect": false
+          },
+          {
+            "text": "Disable logging to save cost",
+            "isCorrect": false
+          },
+          {
+            "text": "Use a single shared credential",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
+      {
+        "text": "Which cloud security concept assigns responsibilities for security controls between the cloud provider and the customer?",
+        "explanation": "The Shared Responsibility Model clearly demarcates what the cloud provider secures (security 'of' the cloud) and what the customer secures (security 'in' the cloud).",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Shared Responsibility Model",
+            "isCorrect": true
+          },
+          {
+            "text": "Zero Trust Architecture",
+            "isCorrect": false
+          },
+          {
+            "text": "Defense in Depth",
+            "isCorrect": false
+          },
+          {
+            "text": "Service Level Agreement",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is a Cloud Access Security Broker (CASB)?",
+        "explanation": "A CASB is a security enforcement point placed between cloud consumers and cloud service providers to inject enterprise security policies.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "A software tool that enforces security policies between users and cloud applications",
+            "isCorrect": true
+          },
+          {
+            "text": "A hardware firewall placed inside a cloud datacenter",
+            "isCorrect": false
+          },
+          {
+            "text": "An automated billing analyzer",
+            "isCorrect": false
+          },
+          {
+            "text": "A system that scales server instances dynamically",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which tool category continuously scans cloud environments to detect misconfigurations, compliance drifts, and public exposures?",
+        "explanation": "CSPM (Cloud Security Posture Management) tools monitor and manage cloud security compliance, configurations, and risks.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "CSPM",
+            "isCorrect": true
+          },
+          {
+            "text": "CWPP",
+            "isCorrect": false
+          },
+          {
+            "text": "CNAPP",
+            "isCorrect": false
+          },
+          {
+            "text": "CIEM",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "In the Shared Responsibility Model, who is responsible for securing physical hypervisor hosts in an Infrastructure as a Service (IaaS) setup?",
+        "explanation": "The cloud service provider (e.g. AWS, Azure, GCP) is always responsible for the physical security and hypervisor layers in IaaS.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "The Cloud Service Provider",
+            "isCorrect": true
+          },
+          {
+            "text": "The Cloud Customer",
+            "isCorrect": false
+          },
+          {
+            "text": "Both equally",
+            "isCorrect": false
+          },
+          {
+            "text": "The third-party auditor",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the primary risk of using wildcards in cloud Identity & Access Management (IAM) policies?",
+        "explanation": "Using wildcards (e.g., action: '*') can grant over-privileged access, violating the principle of least privilege.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Violates least privilege by granting excessive permissions",
+            "isCorrect": true
+          },
+          {
+            "text": "Increases data egress costs",
+            "isCorrect": false
+          },
+          {
+            "text": "Slowing down API query execution times",
+            "isCorrect": false
+          },
+          {
+            "text": "Causes syntax parsing errors",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which service enables private communication between cloud virtual networks without routing traffic over the public Internet?",
+        "explanation": "Virtual Network Peering (VPC Peering) links virtual networks privately within the cloud fabric.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "VPC Peering",
+            "isCorrect": true
+          },
+          {
+            "text": "NAT Gateway",
+            "isCorrect": false
+          },
+          {
+            "text": "Internet Gateway",
+            "isCorrect": false
+          },
+          {
+            "text": "VPC Endpoint",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What capability does a Cloud Workload Protection Platform (CWPP) focus on?",
+        "explanation": "CWPP specializes in protecting workloads (VMs, containers, serverless) across hybrid and multi-cloud environments.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Securing runtime workloads (containers, VMs, serverless)",
+            "isCorrect": true
+          },
+          {
+            "text": "Analyzing cloud billing anomalies",
+            "isCorrect": false
+          },
+          {
+            "text": "Managing user single sign-on",
+            "isCorrect": false
+          },
+          {
+            "text": "Encrypting object storage buckets",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is metadata service (IMDSv2) SSRF protection in cloud instances?",
+        "explanation": "IMDSv2 uses session-oriented requests requiring a token header, preventing simple SSRF attacks from stealing instance IAM role credentials.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Requires session-oriented token headers to fetch instance metadata",
+            "isCorrect": true
+          },
+          {
+            "text": "Disables metadata access entirely",
+            "isCorrect": false
+          },
+          {
+            "text": "Encrypts metadata using symmetric keys",
+            "isCorrect": false
+          },
+          {
+            "text": "Requires MFA to retrieve instance parameters",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which security tool manages identities, roles, and entitlements across complex multi-cloud infrastructures?",
+        "explanation": "CIEM (Cloud Infrastructure Entitlement Management) discovers and enforces least-privilege access across cloud platforms.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "CIEM",
+            "isCorrect": true
+          },
+          {
+            "text": "CSPM",
+            "isCorrect": false
+          },
+          {
+            "text": "SIEM",
+            "isCorrect": false
+          },
+          {
+            "text": "CASB",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What container security risk involves an attacker compromising a container and gaining administrative root access to the parent host?",
+        "explanation": "Container escape occurs when weaknesses in the container runtime or host kernel allow a process to breakout to the host.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Container escape",
+            "isCorrect": true
+          },
+          {
+            "text": "API exposure",
+            "isCorrect": false
+          },
+          {
+            "text": "Image poisoning",
+            "isCorrect": false
+          },
+          {
+            "text": "Privilege drift",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which model describes securing cloud operations by treating infrastructure configurations as software code (e.g. Terraform)?",
+        "explanation": "Infrastructure as Code (IaC) allows declarative security definitions of cloud resources, permitting automated compliance testing before deployment.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Infrastructure as Code (IaC)",
+            "isCorrect": true
+          },
+          {
+            "text": "SaaS automation",
+            "isCorrect": false
+          },
+          {
+            "text": "DevOps containment",
+            "isCorrect": false
+          },
+          {
+            "text": "Serverless scheduling",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the primary security concern with publicly readable cloud storage buckets (e.g. AWS S3 buckets)?",
+        "explanation": "Publicly readable buckets lead to immediate data exposure and potential compliance violations due to sensitive data leakage.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Unauthorized data disclosure",
+            "isCorrect": true
+          },
+          {
+            "text": "Storage cost increases",
+            "isCorrect": false
+          },
+          {
+            "text": "Loss of network connectivity",
+            "isCorrect": false
+          },
+          {
+            "text": "DNS hijacking",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which service pattern decouples security keys from the cloud provider, hosting cryptographic modules on-premises under customer control?",
+        "explanation": "Bring Your Own Key (BYOK) or Hold Your Own Key (HYOK) keeps key generation and storage inside HSMs controlled by the customer.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "BYOK / HYOK",
+            "isCorrect": true
+          },
+          {
+            "text": "Symmetric envelope encryption",
+            "isCorrect": false
+          },
+          {
+            "text": "Default KMS encryption",
+            "isCorrect": false
+          },
+          {
+            "text": "Identity federation",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is a serverless security risk associated with functions execution?",
+        "explanation": "Serverless functions can suffer from event-data injection vulnerabilities if inputs from message queues or databases are not sanitized before execution.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Event-data injection in function arguments",
+            "isCorrect": true
+          },
+          {
+            "text": "Hypervisor breakout",
+            "isCorrect": false
+          },
+          {
+            "text": "Physical server configuration drift",
+            "isCorrect": false
+          },
+          {
+            "text": "Container host kernel patching",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
   },
   {
-    categorySlug: "ethical-hacking",
-    questions: [
+    "categorySlug": "ethical-hacking",
+    "questions": [
       {
-        text: "What is social engineering in the context of ethical hacking?",
-        explanation: "Social engineering manipulates people into revealing information or performing actions, bypassing technical controls via human trust.",
-        difficulty: "Beginner",
-        options: [
-          { text: "Manipulating people to reveal information or take actions", isCorrect: true },
-          { text: "Reverse-engineering software", isCorrect: false },
-          { text: "Optimizing social media", isCorrect: false },
-          { text: "Engineering better passwords", isCorrect: false },
-        ],
+        "text": "What is social engineering in the context of ethical hacking?",
+        "explanation": "Social engineering manipulates people into revealing information or performing actions, bypassing technical controls via human trust.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Manipulating people to reveal information or take actions",
+            "isCorrect": true
+          },
+          {
+            "text": "Reverse-engineering software",
+            "isCorrect": false
+          },
+          {
+            "text": "Optimizing social media",
+            "isCorrect": false
+          },
+          {
+            "text": "Engineering better passwords",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "What is a buffer overflow vulnerability?",
-        explanation: "A buffer overflow writes more data than a buffer can hold, overwriting adjacent memory and potentially allowing arbitrary code execution.",
-        difficulty: "Advanced",
-        options: [
-          { text: "Writing past a buffer's bounds to corrupt memory", isCorrect: true },
-          { text: "Overflowing a network queue", isCorrect: false },
-          { text: "Too many login attempts", isCorrect: false },
-          { text: "A database table growing large", isCorrect: false },
-        ],
+        "text": "What is a buffer overflow vulnerability?",
+        "explanation": "A buffer overflow writes more data than a buffer can hold, overwriting adjacent memory and potentially allowing arbitrary code execution.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Writing past a buffer's bounds to corrupt memory",
+            "isCorrect": true
+          },
+          {
+            "text": "Overflowing a network queue",
+            "isCorrect": false
+          },
+          {
+            "text": "Too many login attempts",
+            "isCorrect": false
+          },
+          {
+            "text": "A database table growing large",
+            "isCorrect": false
+          }
+        ]
       },
       {
-        text: "Which reconnaissance technique uses search engines to find sensitive exposed information?",
-        explanation: "Google dorking uses advanced search operators to find exposed files, credentials, and misconfigurations indexed by search engines.",
-        difficulty: "Intermediate",
-        options: [
-          { text: "Google dorking", isCorrect: true },
-          { text: "Ping sweeping", isCorrect: false },
-          { text: "Port scanning", isCorrect: false },
-          { text: "Packet sniffing", isCorrect: false },
-        ],
+        "text": "Which reconnaissance technique uses search engines to find sensitive exposed information?",
+        "explanation": "Google dorking uses advanced search operators to find exposed files, credentials, and misconfigurations indexed by search engines.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Google dorking",
+            "isCorrect": true
+          },
+          {
+            "text": "Ping sweeping",
+            "isCorrect": false
+          },
+          {
+            "text": "Port scanning",
+            "isCorrect": false
+          },
+          {
+            "text": "Packet sniffing",
+            "isCorrect": false
+          }
+        ]
       },
-    ],
-  },
+      {
+        "text": "Which scanning tool is widely used to discover active hosts, open ports, and running services on a network?",
+        "explanation": "Nmap (Network Mapper) is the industry standard tool for port scanning and network discovery.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Nmap",
+            "isCorrect": true
+          },
+          {
+            "text": "Wireshark",
+            "isCorrect": false
+          },
+          {
+            "text": "Metasploit",
+            "isCorrect": false
+          },
+          {
+            "text": "Burp Suite",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of penetration testing is conducted with complete knowledge of the target system's internal code and architecture?",
+        "explanation": "White-box testing (or clear-box testing) provides full visibility of the target's configurations and architecture.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "White-box testing",
+            "isCorrect": true
+          },
+          {
+            "text": "Black-box testing",
+            "isCorrect": false
+          },
+          {
+            "text": "Grey-box testing",
+            "isCorrect": false
+          },
+          {
+            "text": "Social engineering",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which tool acts as an intercepting HTTP proxy, allowing security testers to analyze and modify web traffic between a browser and server?",
+        "explanation": "Burp Suite (and OWASP ZAP) are intercepting web proxies used to capture, audit, and modify HTTP requests.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Burp Suite",
+            "isCorrect": true
+          },
+          {
+            "text": "Wireshark",
+            "isCorrect": false
+          },
+          {
+            "text": "Nmap",
+            "isCorrect": false
+          },
+          {
+            "text": "John the Ripper",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What is the term for gaining access to a system, establishing a persistent connection, and using it as a starting point to compromise other systems on the network?",
+        "explanation": "Pivoting (or lateral movement) utilizes a compromised machine to route traffic and compromise internal network segments.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Pivoting",
+            "isCorrect": true
+          },
+          {
+            "text": "Reconnaissance",
+            "isCorrect": false
+          },
+          {
+            "text": "Privilege escalation",
+            "isCorrect": false
+          },
+          {
+            "text": "Social engineering",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which phase of ethical hacking involves gathering publicly available information about a target (e.g. DNS records, IP ranges, employee names)?",
+        "explanation": "Reconnaissance is the initial phase of security testing, focused on collecting intelligence about the target.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Reconnaissance / Footprinting",
+            "isCorrect": true
+          },
+          {
+            "text": "Scanning",
+            "isCorrect": false
+          },
+          {
+            "text": "Exploitation",
+            "isCorrect": false
+          },
+          {
+            "text": "Covering tracks",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What credential-cracking tool uses precomputed hash lookup tables to decrypt password hashes in seconds?",
+        "explanation": "Rainbow tables contain precomputed password hashes, allowing rapid offline lookup cracking of standard algorithms.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Rainbow tables",
+            "isCorrect": true
+          },
+          {
+            "text": "Brute-force cracker",
+            "isCorrect": false
+          },
+          {
+            "text": "Dictionary cracker",
+            "isCorrect": false
+          },
+          {
+            "text": "Online hydra scanner",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What type of shell execution connects an exploited victim host back to a listener port on the attacker's machine?",
+        "explanation": "A reverse shell instructs the victim server to open an outbound connection back to the attacker, bypassing inbound firewall blocks.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Reverse shell",
+            "isCorrect": true
+          },
+          {
+            "text": "Bind shell",
+            "isCorrect": false
+          },
+          {
+            "text": "SSH tunnel",
+            "isCorrect": false
+          },
+          {
+            "text": "Web shell",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which exploit framework includes a modular database of payloads, encoders, and exploit modules used during penetration testing?",
+        "explanation": "Metasploit Framework is the most popular open-source modular penetration testing tool for exploitation and payload delivery.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "Metasploit",
+            "isCorrect": true
+          },
+          {
+            "text": "Nmap",
+            "isCorrect": false
+          },
+          {
+            "text": "Aircrack-ng",
+            "isCorrect": false
+          },
+          {
+            "text": "SQLmap",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which passive intelligence technique gathers target information from public records, search engines, and social media platforms?",
+        "explanation": "OSINT (Open-Source Intelligence) is a passive information-gathering methodology utilizing publicly accessible data streams.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "OSINT",
+            "isCorrect": true
+          },
+          {
+            "text": "Active scanning",
+            "isCorrect": false
+          },
+          {
+            "text": "Banner grabbing",
+            "isCorrect": false
+          },
+          {
+            "text": "Social engineering",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What penetration testing standard provides rules of engagement, scoping methodologies, and post-exploitation guidelines?",
+        "explanation": "PTES (Penetration Testing Execution Standard) defines a structured methodology for performing penetration tests.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "PTES",
+            "isCorrect": true
+          },
+          {
+            "text": "OWASP",
+            "isCorrect": false
+          },
+          {
+            "text": "OSSTMM",
+            "isCorrect": false
+          },
+          {
+            "text": "NIST 800-53",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which exploitation technique overrides function pointers in memory to redirect execution flow to custom attacker shellcode?",
+        "explanation": "Buffer overflows exploit memory boundaries to overwrite execution pointers (like EIP/RIP), pointing them to shellcode addresses.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "EIP pointer hijacking",
+            "isCorrect": true
+          },
+          {
+            "text": "SQL injection",
+            "isCorrect": false
+          },
+          {
+            "text": "Session fixation",
+            "isCorrect": false
+          },
+          {
+            "text": "Cross-site request forgery",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which active scanning technique queries open ports to capture header responses and identify software versions?",
+        "explanation": "Banner grabbing reads server headers (FTP, SSH, HTTP responses) to detect service versions and configurations.",
+        "difficulty": "Intermediate",
+        "options": [
+          {
+            "text": "Banner grabbing",
+            "isCorrect": true
+          },
+          {
+            "text": "Ping sweep",
+            "isCorrect": false
+          },
+          {
+            "text": "Tracerouting",
+            "isCorrect": false
+          },
+          {
+            "text": "OSINT mapping",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "What vulnerability occurs when an attacker obtains an active session identifier and injects it into a victim's browser to hijack their session?",
+        "explanation": "Session Fixation is an attack where the attacker establishes a valid session ID, forces the victim's browser to use it, and then hijacks the active state.",
+        "difficulty": "Advanced",
+        "options": [
+          {
+            "text": "Session Fixation",
+            "isCorrect": true
+          },
+          {
+            "text": "Session Hijacking",
+            "isCorrect": false
+          },
+          {
+            "text": "Cross-Site Scripting",
+            "isCorrect": false
+          },
+          {
+            "text": "Directory Traversal",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "text": "Which security control detects and logs unauthorized actions on an endpoint without blocking them?",
+        "explanation": "Host Intrusion Detection Systems (HIDS) detect and log events, while Host Intrusion Prevention Systems (HIPS) actively block them.",
+        "difficulty": "Beginner",
+        "options": [
+          {
+            "text": "HIDS",
+            "isCorrect": true
+          },
+          {
+            "text": "HIPS",
+            "isCorrect": false
+          },
+          {
+            "text": "WAF",
+            "isCorrect": false
+          },
+          {
+            "text": "Antivirus",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 async function main() {

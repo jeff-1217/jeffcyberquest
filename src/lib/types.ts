@@ -134,4 +134,5 @@ export type View =
   | { name: "runner"; testId: string }
   | { name: "results"; attemptId: string }
   | { name: "bank" }
-  | { name: "dashboard" };
+  | { name: "dashboard" }
+  | { name: "drill" };

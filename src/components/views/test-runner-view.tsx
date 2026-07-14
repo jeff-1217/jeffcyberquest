@@ -11,6 +11,7 @@ import {
   ListChecks,
   Loader2,
   Send,
+  Zap,
 } from "lucide-react";
 import { api } from "@/lib/api";
 import { useApi } from "@/hooks/use-api";
@@ -89,10 +90,77 @@ function Runner({
   const totalQs = test.questions.length;
 
   const [answers, setAnswers] = React.useState<Record<string, string | null>>({});
+  const [flags, setFlags] = React.useState<Record<string, boolean>>({});
+  const [focusMode, setFocusMode] = React.useState(false);
   const [current, setCurrent] = React.useState(0);
   const [submitting, setSubmitting] = React.useState(false);
   const [timeLeft, setTimeLeft] = React.useState(test.durationMin * 60);
   const startRef = React.useRef(Date.now());
+
+  // Focus Mode effect
+  React.useEffect(() => {
+    if (focusMode) {
+      document.body.classList.add("focus-mode");
+    } else {
+      document.body.classList.remove("focus-mode");
+    }
+    return () => {
+      document.body.classList.remove("focus-mode");
+    };
+  }, [focusMode]);
+
+  // Keyboard navigation & controls listener
+  React.useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA"
+      ) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+
+      if (key === "arrowright") {
+        if (current < totalQs - 1) {
+          setCurrent((c) => c + 1);
+        }
+      } else if (key === "arrowleft") {
+        if (current > 0) {
+          setCurrent((c) => c - 1);
+        }
+      } else if (key === "enter") {
+        if (current < totalQs - 1) {
+          setCurrent((c) => c + 1);
+        }
+      } else if (key === "f" || key === " ") {
+        e.preventDefault();
+        const qId = test.questions[current].id;
+        setFlags((f) => ({ ...f, [qId]: !f[qId] }));
+      } else if (["a", "b", "c", "d"].includes(key)) {
+        const optionIdx = key.charCodeAt(0) - 97;
+        const q = test.questions[current];
+        if (q.options[optionIdx]) {
+          setAnswers((a) => ({
+            ...a,
+            [q.id]: a[q.id] === q.options[optionIdx].id ? null : q.options[optionIdx].id,
+          }));
+        }
+      } else if (["1", "2", "3", "4"].includes(key)) {
+        const optionIdx = parseInt(key) - 1;
+        const q = test.questions[current];
+        if (q.options[optionIdx]) {
+          setAnswers((a) => ({
+            ...a,
+            [q.id]: a[q.id] === q.options[optionIdx].id ? null : q.options[optionIdx].id,
+          }));
+        }
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [current, totalQs, test.questions]);
 
   // Countdown timer
   React.useEffect(() => {
@@ -196,6 +264,15 @@ function Runner({
             </div>
 
             <div className="flex items-center gap-3">
+              <Button
+                variant={focusMode ? "secondary" : "outline"}
+                size="sm"
+                className={cn("gap-1.5 hidden sm:inline-flex", focusMode && "bg-primary/15 text-primary border-primary/40")}
+                onClick={() => setFocusMode(!focusMode)}
+              >
+                <Zap className={cn("h-4 w-4", focusMode && "animate-pulse")} />
+                {focusMode ? "Focus Mode On" : "Focus Mode"}
+              </Button>
               <div
                 className={cn(
                   "flex items-center gap-2 rounded-lg border px-3 py-2 font-mono text-lg font-bold tabular-nums",
@@ -220,6 +297,7 @@ function Runner({
                   <Palette
                     test={test}
                     answers={answers}
+                    flags={flags}
                     current={current}
                     onSelect={setCurrent}
                   />
@@ -246,10 +324,26 @@ function Runner({
         {/* Question card */}
         <Card className="p-5 sm:p-7 border-border/70 bg-card/60">
           <div className="flex items-center justify-between gap-3 mb-4">
-            <Badge variant="secondary" className="font-mono">
-              Q{current + 1}
-            </Badge>
-            <span className="text-xs text-muted-foreground">{q.difficulty}</span>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" className="font-mono">
+                Q{current + 1}
+              </Badge>
+              <span className="text-xs text-muted-foreground">{q.difficulty}</span>
+            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              className={cn(
+                "h-8 gap-1.5 text-xs hover:bg-amber-500/10",
+                flags[q.id]
+                  ? "text-amber-500 hover:text-amber-600"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+              onClick={() => setFlags((f) => ({ ...f, [q.id]: !f[q.id] }))}
+            >
+              <Flag className={cn("h-3.5 w-3.5", flags[q.id] && "fill-current")} />
+              {flags[q.id] ? "Flagged" : "Flag for Review"}
+            </Button>
           </div>
           <h2 className="text-lg sm:text-xl font-semibold leading-relaxed">{q.text}</h2>
 
@@ -348,7 +442,7 @@ function Runner({
             <h3 className="text-sm font-semibold">Question Palette</h3>
             <span className="text-xs text-muted-foreground font-mono">{answeredCount}/{totalQs}</span>
           </div>
-          <Palette test={test} answers={answers} current={current} onSelect={setCurrent} />
+          <Palette test={test} answers={answers} flags={flags} current={current} onSelect={setCurrent} />
         </Card>
       </div>
     </div>
@@ -358,11 +452,13 @@ function Runner({
 function Palette({
   test,
   answers,
+  flags,
   current,
   onSelect,
 }: {
   test: TestForTaking;
   answers: Record<string, string | null>;
+  flags: Record<string, boolean>;
   current: number;
   onSelect: (i: number) => void;
 }) {
@@ -370,21 +466,27 @@ function Palette({
     <div className="grid grid-cols-5 gap-2">
       {test.questions.map((q, i) => {
         const answered = !!answers[q.id];
+        const flagged = !!flags[q.id];
         const isCurrent = i === current;
         return (
           <button
             key={q.id}
             onClick={() => onSelect(i)}
             className={cn(
-              "aspect-square rounded-lg border text-sm font-mono font-semibold transition-all",
+              "aspect-square rounded-lg border text-sm font-mono font-semibold transition-all relative",
               isCurrent
                 ? "border-primary bg-primary text-primary-foreground"
+                : flagged
+                ? "border-amber-500/50 bg-amber-500/10 text-amber-500 hover:border-amber-500"
                 : answered
                 ? "border-primary/40 bg-primary/15 text-primary"
                 : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
             )}
           >
             {i + 1}
+            {flagged && !isCurrent && (
+              <span className="absolute top-0.5 right-0.5 h-1.5 w-1.5 rounded-full bg-amber-500" />
+            )}
           </button>
         );
       })}

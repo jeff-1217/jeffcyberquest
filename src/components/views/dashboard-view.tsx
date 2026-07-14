@@ -201,9 +201,10 @@ export function DashboardView() {
               {stats.data.recentAttempts.map((a) => {
                 const diffCfg = difficultyConfig[a.difficulty];
                 return (
-                  <div
+                  <button
                     key={a.id}
-                    className="flex items-center gap-3 rounded-lg border border-border/60 bg-background/40 p-3"
+                    onClick={() => go({ name: "results", attemptId: a.id })}
+                    className="flex w-full items-center text-left gap-3 rounded-lg border border-border/60 bg-background/40 p-3 cursor-pointer hover:border-primary/40 hover:bg-primary/5 transition-all"
                   >
                     <div
                       className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border"
@@ -257,7 +258,7 @@ export function DashboardView() {
                         <XCircle className="h-5 w-5 text-destructive" />
                       )}
                     </div>
-                  </div>
+                  </button>
                 );
               })}
             </div>

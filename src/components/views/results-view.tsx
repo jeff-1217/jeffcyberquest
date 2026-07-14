@@ -2,17 +2,21 @@
 
 import * as React from "react";
 import {
+  AlertTriangle,
   ArrowLeft,
   Check,
   CheckCircle2,
   Clock,
   Home,
+  Loader2,
   RotateCcw,
   Target,
   Trophy,
   X,
   XCircle,
 } from "lucide-react";
+import { useApi } from "@/hooks/use-api";
+import { api } from "@/lib/api";
 import { useApp } from "@/lib/store";
 import { formatTime, difficultyConfig } from "@/lib/ui";
 import { CategoryIcon } from "@/components/category-icon";
@@ -23,9 +27,40 @@ import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import type { GradedQuestion, SubmitResult } from "@/lib/types";
 
-export function ResultsView() {
-  const result = useApp((s) => s.lastResult);
+export function ResultsView({ attemptId }: { attemptId?: string }) {
+  const lastResult = useApp((s) => s.lastResult);
   const go = useApp((s) => s.go);
+
+  const cached = lastResult && lastResult.attemptId === attemptId ? lastResult : null;
+
+  const attemptApi = useApi(
+    () => (attemptId && !cached ? api.attempt(attemptId) : Promise.resolve(null)),
+    [attemptId, cached]
+  );
+
+  const result = cached || attemptApi.data;
+
+  if (attemptApi.loading && attemptId && !cached) {
+    return (
+      <div className="flex flex-col items-center justify-center py-32 text-center">
+        <Loader2 className="h-10 w-10 text-primary animate-spin" />
+        <p className="mt-4 text-sm text-muted-foreground">Loading test results…</p>
+      </div>
+    );
+  }
+
+  if (attemptApi.error) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 text-center">
+        <AlertTriangle className="h-10 w-10 text-destructive" />
+        <h2 className="mt-4 text-lg font-semibold">Couldn&apos;t load results</h2>
+        <p className="mt-1 text-sm text-muted-foreground">{attemptApi.error}</p>
+        <Button className="mt-4" onClick={() => go({ name: "tests" })}>
+          Back to tests
+        </Button>
+      </div>
+    );
+  }
 
   if (!result) {
     return (
@@ -62,7 +97,7 @@ function Results({ result }: { result: SubmitResult }) {
       <Card className="relative overflow-hidden border-border/70 bg-card/60">
         <div className="absolute inset-0 bg-cyber-grid opacity-40" aria-hidden />
         <div
-          className="absolute -top-20 -right-20 h-64 w-64 rounded-full blur-3xl opacity-25"
+          className="hidden sm:block absolute -top-20 -right-20 h-64 w-64 rounded-full blur-3xl opacity-25"
           style={{
             background:
               "radial-gradient(circle, " +

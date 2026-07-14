@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {
+  AlertTriangle,
   ArrowRight,
   Brain,
   ChevronRight,
@@ -22,15 +23,17 @@ import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { TestCard, DifficultyBadge } from "./shared";
-import type { Category, Stats, TestSummary } from "@/lib/types";
+import type { BankQuestion, Category, Stats, TestSummary } from "@/lib/types";
 
 export function HomeView() {
   const go = useApp((s) => s.go);
   const tests = useApi<TestSummary[]>(() => api.tests(), []);
   const stats = useApi<Stats>(() => api.stats(), []);
   const categories = useApi<Category[]>(() => api.categories(), []);
+  const weaknesses = useApi<BankQuestion[]>(() => api.weaknessQuestions(), []);
 
   const featured = (tests.data ?? []).slice(0, 4);
+  const weakCount = weaknesses.data?.length ?? 0;
 
   return (
     <div className="space-y-16">
@@ -38,7 +41,7 @@ export function HomeView() {
       <section className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/40">
         <div className="absolute inset-0 bg-cyber-grid opacity-60" aria-hidden />
         <div
-          className="absolute -top-24 -right-24 h-72 w-72 rounded-full blur-3xl opacity-30"
+          className="hidden sm:block absolute -top-24 -right-24 h-72 w-72 rounded-full blur-3xl opacity-30"
           style={{ background: "radial-gradient(circle, var(--primary), transparent 70%)" }}
           aria-hidden
         />
@@ -49,10 +52,10 @@ export function HomeView() {
               className="mb-5 gap-2 border-primary/40 bg-primary/10 text-primary"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              8 domains · 100+ questions · instant grading
+              8 domains · 200+ questions · instant grading
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-              Master <span className="text-primary glow-primary">cybersecurity</span>
+              Master <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">cybersecurity</span>
               <br className="hidden sm:block" /> one question at a time.
             </h1>
             <p className="mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground">
@@ -87,6 +90,31 @@ export function HomeView() {
           </div>
         </div>
       </section>
+
+      {/* WEAKNESS DRILL PROMO */}
+      {weakCount > 0 && (
+        <Card className="relative overflow-hidden border-amber-500/30 bg-amber-500/5 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-500">
+              <AlertTriangle className="h-5 w-5" />
+            </span>
+            <div>
+              <h3 className="font-semibold text-amber-600 dark:text-amber-400">Targeted Practice Available</h3>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                You have <span className="font-semibold text-foreground">{weakCount}</span> questions in your weakness queue from past attempts.
+              </p>
+            </div>
+          </div>
+          <Button
+            size="sm"
+            variant="outline"
+            className="border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10 gap-1.5 shrink-0"
+            onClick={() => go({ name: "drill" })}
+          >
+            <Zap className="h-4 w-4" /> Start Weakness Drill
+          </Button>
+        </Card>
+      )}
 
       {/* STATS STRIP */}
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">

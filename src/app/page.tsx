@@ -14,6 +14,22 @@ import { DashboardView } from "@/components/views/dashboard-view";
 export default function Home() {
   const view = useApp((s) => s.view);
 
+  // Automatically unregister any active service workers from other apps (e.g. WiFi DensePose)
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister().then((success) => {
+            if (success) {
+              console.log("Unregistered orphan service worker:", registration);
+              window.location.reload();
+            }
+          });
+        }
+      });
+    }
+  }, []);
+
   const node = (() => {
     switch (view.name) {
       case "home":
@@ -23,9 +39,11 @@ export default function Home() {
       case "runner":
         return <TestRunnerView testId={view.testId} />;
       case "results":
-        return <ResultsView />;
+        return <ResultsView attemptId={view.attemptId} />;
       case "bank":
         return <QuestionBankView />;
+      case "drill":
+        return <QuestionBankView drillMode />;
       case "dashboard":
         return <DashboardView />;
       default:

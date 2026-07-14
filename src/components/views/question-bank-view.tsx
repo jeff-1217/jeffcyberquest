@@ -25,7 +25,7 @@ import { cn } from "@/lib/utils";
 
 const difficulties: (Difficulty | "All")[] = ["All", "Beginner", "Intermediate", "Advanced"];
 
-export function QuestionBankView() {
+export function QuestionBankView({ drillMode = false }: { drillMode?: boolean }) {
   const [search, setSearch] = React.useState("");
   const [category, setCategory] = React.useState("all");
   const [difficulty, setDifficulty] = React.useState<Difficulty | "All">("All");
@@ -34,89 +34,97 @@ export function QuestionBankView() {
   const debounced = useDebounced(search, 300);
   const questions = useApi<BankQuestion[]>(
     () =>
-      api.questions({
-        search: debounced || undefined,
-        category: category !== "all" ? category : undefined,
-        difficulty: difficulty !== "All" ? difficulty : undefined,
-      }),
-    [debounced, category, difficulty]
+      drillMode
+        ? api.weaknessQuestions()
+        : api.questions({
+            search: debounced || undefined,
+            category: category !== "all" ? category : undefined,
+            difficulty: difficulty !== "All" ? difficulty : undefined,
+          }),
+    [debounced, category, difficulty, drillMode]
   );
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Question Bank</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          {drillMode ? "Weakness Drill" : "Question Bank"}
+        </h1>
         <p className="mt-1 text-muted-foreground">
-          Study mode. Pick an answer to check yourself instantly — every question includes a full explanation.
+          {drillMode
+            ? "Practice only the questions you have previously answered incorrectly to close your knowledge gaps."
+            : "Study mode. Pick an answer to check yourself instantly — every question includes a full explanation."}
         </p>
       </div>
 
       {/* Filters */}
-      <div className="space-y-4 rounded-xl border border-border/70 bg-card/50 p-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search questions and explanations…"
-              className="pl-9"
-            />
+      {!drillMode && (
+        <div className="space-y-4 rounded-xl border border-border/70 bg-card/50 p-4">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search questions and explanations…"
+                className="pl-9"
+              />
+            </div>
+            <div className="flex items-center gap-2 overflow-x-auto cyber-scroll pb-1 sm:pb-0">
+              {difficulties.map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setDifficulty(d)}
+                  className={cn(
+                    "shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
+                    difficulty === d
+                      ? "border-primary bg-primary/15 text-primary"
+                      : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                  )}
+                >
+                  {d}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto cyber-scroll pb-1 sm:pb-0">
-            {difficulties.map((d) => (
-              <button
-                key={d}
-                onClick={() => setDifficulty(d)}
-                className={cn(
-                  "shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
-                  difficulty === d
-                    ? "border-primary bg-primary/15 text-primary"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                )}
-              >
-                {d}
-              </button>
-            ))}
-          </div>
-        </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            <Filter className="h-3.5 w-3.5" /> Domain
-          </span>
-          <button
-            onClick={() => setCategory("all")}
-            className={cn(
-              "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-              category === "all"
-                ? "border-primary bg-primary/15 text-primary"
-                : "border-border text-muted-foreground hover:text-foreground"
-            )}
-          >
-            All
-          </button>
-          {categories.data?.map((c) => {
-            const active = category === c.slug;
-            return (
-              <button
-                key={c.id}
-                onClick={() => setCategory(c.slug)}
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-                  active
-                    ? "border-primary bg-primary/15 text-primary"
-                    : "border-border text-muted-foreground hover:text-foreground"
-                )}
-                style={active ? { borderColor: `${c.color}80`, color: c.color, background: `${c.color}1a` } : undefined}
-              >
-                <CategoryIcon name={c.icon} className="h-3.5 w-3.5" />
-                {c.name}
-              </button>
-            );
-          })}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <Filter className="h-3.5 w-3.5" /> Domain
+            </span>
+            <button
+              onClick={() => setCategory("all")}
+              className={cn(
+                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                category === "all"
+                  ? "border-primary bg-primary/15 text-primary"
+                  : "border-border text-muted-foreground hover:text-foreground"
+              )}
+            >
+              All
+            </button>
+            {categories.data?.map((c) => {
+              const active = category === c.slug;
+              return (
+                <button
+                  key={c.id}
+                  onClick={() => setCategory(c.slug)}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                    active
+                      ? "border-primary bg-primary/15 text-primary"
+                      : "border-border text-muted-foreground hover:text-foreground"
+                  )}
+                  style={active ? { borderColor: `${c.color}80`, color: c.color, background: `${c.color}1a` } : undefined}
+                >
+                  <CategoryIcon name={c.icon} className="h-3.5 w-3.5" />
+                  {c.name}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Questions */}
       {questions.loading ? (
