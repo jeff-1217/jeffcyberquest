@@ -67,9 +67,12 @@ export async function POST(
   const passed = score >= test.passingScore;
   const timeSpentSec = Math.max(0, Math.round(body.timeSpentSec || 0));
 
+  const userId = req.headers.get("x-user-id") || "anonymous";
+
   const attempt = await db.attempt.create({
     data: {
       testId: test.id,
+      userId,
       score,
       totalQuestions,
       correctAnswers: correctCount,

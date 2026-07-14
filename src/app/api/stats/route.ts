@@ -1,13 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
 // Aggregate platform + user stats for the dashboard.
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const userId = req.headers.get("x-user-id") || "anonymous";
+
   const [tests, questions, categories, attempts] = await Promise.all([
     db.test.count(),
     db.question.count(),
     db.category.count(),
     db.attempt.findMany({
+      where: { userId },
       orderBy: { completedAt: "desc" },
       include: { test: { include: { category: true } } },
     }),

@@ -1,14 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
 export async function GET(
-  _req: Request,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
+  const userId = req.headers.get("x-user-id") || "anonymous";
 
-  const attempt = await db.attempt.findUnique({
-    where: { id },
+  const attempt = await db.attempt.findFirst({
+    where: { id, userId },
     include: {
       test: {
         include: {

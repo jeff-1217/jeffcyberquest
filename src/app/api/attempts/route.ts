@@ -1,8 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const userId = req.headers.get("x-user-id") || "anonymous";
+
   const attempts = await db.attempt.findMany({
+    where: { userId },
     orderBy: { completedAt: "desc" },
     include: {
       test: {

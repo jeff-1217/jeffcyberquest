@@ -8,10 +8,29 @@ import type {
   TestSummary,
 } from "./types";
 
+/**
+ * Returns a stable anonymous user ID for this browser/device.
+ * Generated once, then persisted in localStorage.
+ */
+function getUserId(): string {
+  if (typeof window === "undefined") return "anonymous";
+  const KEY = "jeff_cq_user_id";
+  let id = localStorage.getItem(KEY);
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem(KEY, id);
+  }
+  return id;
+}
+
 async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, {
     ...init,
-    headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+    headers: {
+      "Content-Type": "application/json",
+      "x-user-id": getUserId(),
+      ...(init?.headers || {}),
+    },
   });
   if (!res.ok) {
     const text = await res.text().catch(() => "");

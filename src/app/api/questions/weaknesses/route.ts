@@ -1,9 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
-export async function GET() {
-  // Load all attempts to extract incorrect question IDs
+export async function GET(req: NextRequest) {
+  const userId = req.headers.get("x-user-id") || "anonymous";
+
+  // Load this user's attempts to extract incorrect question IDs
   const attempts = await db.attempt.findMany({
+    where: { userId },
     select: {
       answers: true,
     },
