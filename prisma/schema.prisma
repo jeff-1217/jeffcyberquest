@@ -69,6 +69,7 @@ model Option {
 
 model Attempt {
   id             String   @id @default(cuid())
+  userId         String   @default("anonymous")
   testId         String
   test           Test     @relation(fields: [testId], references: [id])
   score          Int      // percentage
